@@ -1,4 +1,4 @@
 package ua.dp.ardas.e4;
 
-public class Shedulers {
+public class Shedulers_1 {
 }

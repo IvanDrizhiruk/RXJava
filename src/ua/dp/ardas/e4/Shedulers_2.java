@@ -13,13 +13,18 @@ public class Shedulers_2 {
         List<String> datas = Arrays.asList("Java", "Javascript", "C#", "Go", "Scala");
 
         Observable.from(datas)
+                .doOnNext(data -> printThreadNameForDoOnNext(data))
                 .flatMap(data -> Observable.just(data)
-                        .subscribeOn(Schedulers.io())
-                        .map(dataForPrint -> printThreadNameForSubscribe(dataForPrint))
+                                .subscribeOn(Schedulers.computation())
+                                .map(dataForPrint -> printThreadNameForSubscribe(dataForPrint))
                 )
                 .subscribe(dataForPrint -> printThreadNameForObserve(dataForPrint));
 
         sleep(7000);
+    }
+
+    private static void printThreadNameForDoOnNext(String data) {
+        System.out.println("doOnNext" + data +" ==> " + Thread.currentThread().getName());
     }
 
     private static String printThreadNameForSubscribe(String data) {

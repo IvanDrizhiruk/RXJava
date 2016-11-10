@@ -1,7 +1,6 @@
 package ua.dp.ardas.e4;
 
 import rx.Observable;
-import rx.internal.schedulers.ExecutorScheduler;
 import rx.schedulers.Schedulers;
 
 import java.util.Arrays;
